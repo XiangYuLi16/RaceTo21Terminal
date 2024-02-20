@@ -19,7 +19,7 @@ namespace RaceTo21
         {
             for (int i = 0; i < players.Count; i++)
             {
-                players[i].Introduce(i+1); // List is 0-indexed but user-friendly player positions would start with 1...
+                players[i].Introduce(i + 1); // List is 0-indexed but user-friendly player positions would start with 1...
             }
         }
 
@@ -119,7 +119,7 @@ namespace RaceTo21
             {
                 Console.WriteLine("Everyone busted!");
             }
-            Console.Write("Press <Enter> to exit... ");
+            Console.Write("Press <Enter> to continue... ");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
         }
 

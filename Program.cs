@@ -12,9 +12,26 @@ namespace RaceTo21
         {
             CardTable cardTable = new CardTable();
             Game game = new Game(cardTable);
-            while (game.nextTask != Task.GameOver)
+            while (true)
             {
                 game.DoNextTask();
+
+                // Check if the game is over
+                if (game.nextTask == Task.GameOver)
+                {
+                    // Ask the players if they want to continue
+                    Console.Write("Do you want to continue playing? (Y/N) ");
+                    string response = Console.ReadLine();
+                    if (response.ToUpper() != "Y")
+                    {
+                        Console.WriteLine("Thanks for playing!");
+                        break; // Exit the loop and end the game
+                    }
+                    else
+                    {
+                        game.RestartGame(); // Restart the game
+                    }
+                }
             }
         }
     }

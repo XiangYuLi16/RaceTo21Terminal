@@ -107,19 +107,24 @@ namespace RaceTo21
                     }
                     nextTask = Task.PlayerTurn;
                 }
-                /*
-                 if (nextTask == Task.GameOver) // or directly check if the round should end
-                {
-                    AskPlayersIfContinueOrStay();
-                    if (players.Count == 1)
-                    {
-                        Console.WriteLine($"{players[0].name} is the winner as the last remaining player!");
-                        nextTask = Task.GameOver; // Assuming you have an EndGame task
-                    }
-                }
-                */
             }
         }
+
+        public void RestartGame()
+        {
+            foreach (var player in players)
+            {
+                player.cards.Clear();
+                player.score = 0;
+                player.status = PlayerStatus.active;
+            }
+            deck = new Deck();
+            deck.Shuffle();
+            currentPlayer = 0;
+            nextTask = Task.PlayerTurn; // Set next task to PlayerTurn instead of GetNames
+        }
+
+
 
         private void CheckPlayerStatus(Player player)
         {
@@ -196,7 +201,7 @@ namespace RaceTo21
             }
             return score;
         }
-            
+
         /// <summary>
         /// Checks if any player remain active
         /// </summary>
@@ -245,5 +250,6 @@ namespace RaceTo21
             }
             return null; // everyone must have busted because nobody won!
         }
+
     }
 }

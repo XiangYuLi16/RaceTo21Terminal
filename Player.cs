@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace RaceTo21
-{	
+{
 	/// <summary>
 	/// Class representing individual player:
 	/// name, cards in hand, score (sum of current card values), status (from enum PlayerStatus)
@@ -17,7 +17,7 @@ namespace RaceTo21
 		public Player(string n)
 		{
 			name = n;
-        }
+		}
 
 		/// <summary>
 		/// Introduces player by name. Called by CardTable object.
